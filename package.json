@@ -1,0 +1,66 @@
+{
+  "name": "token-cost",
+  "version": "0.1.0",
+  "description": "Token/context cost visualizer for a repo — see which files eat your LLM context window",
+  "keywords": [
+    "llm",
+    "tokens",
+    "context-window",
+    "cli",
+    "treemap",
+    "agent",
+    "claude",
+    "openai",
+    "cost"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "token-cost": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "changeset": "changeset",
+    "changeset:publish": "changeset publish",
+    "changeset:version": "changeset version",
+    "check:fix": "ultracite fix",
+    "check:lint": "ultracite check",
+    "dev": "tsc --watch",
+    "format": "biome format --write",
+    "lint": "biome check",
+    "prepare": "husky && npm run build",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,jsx,ts,tsx,json,jsonc}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
+  },
+  "dependencies": {
+    "ignore": "^7.0.12",
+    "js-tiktoken": "^1.0.21",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@changesets/cli": "^3.0.3",
+    "@types/node": "^26.6.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "typescript": "^7.0.2",
+    "ultracite": "^8.0.1",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
