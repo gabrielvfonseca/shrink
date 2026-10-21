@@ -17,6 +17,7 @@ jobs:
   ci:
     name: Lint, typecheck, build, test
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -31,6 +32,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Ultracite check
+        run: npm run check:lint
+
       - name: Typecheck
         run: npm run typecheck
 
@@ -39,6 +43,15 @@ jobs:
 
       - name: Test
         run: npm test
+
+      - name: Smoke test the CLI
+        run: |
+          node bin/index.js --version
+          node bin/index.js --json . | head -c 200
+          node bin/index.js --html . | grep -q "<svg" 
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
 
       - name: Verify published package contents
         run: npm pack --dry-run

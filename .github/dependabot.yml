@@ -1,0 +1,46 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - tooling
+    groups:
+      development-dependencies:
+        dependency-type: development
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "@biomejs/biome"
+          - "ultracite"
+      production-dependencies:
+        dependency-type: production
+    ignore:
+      # The BPE table is large and the encoding is stable — let it move
+      # deliberately rather than on every Dependabot run.
+      - dependency-name: js-tiktoken
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-major
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Etc/UTC
+    labels:
+      - dependencies
+      - ci
+    groups:
+      actions:
+        patterns:
+          - "*"

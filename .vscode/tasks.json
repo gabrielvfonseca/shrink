@@ -1,277 +1,197 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks format
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "bun: install",
-      "type": "shell",
-      "command": "bun install",
+      "command": "npm install",
       "group": "build",
+      "label": "npm: install",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "bun: build",
-      "type": "shell",
-      "command": "bun run build",
+      "command": "npm run build",
       "group": "build",
+      "label": "npm: build",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "bun: dev",
-      "type": "shell",
-      "command": "bun run dev",
-      "group": "test",
+      "command": "npm run dev",
+      "group": "build",
+      "label": "npm: dev (watch)",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "bun: test",
-      "type": "shell",
-      "command": "bun run test",
+      "command": "npm test",
       "group": "test",
+      "label": "npm: test",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "bun: test:watch",
-      "type": "shell",
-      "command": "bun run test --watch",
+      "command": "npm test -- --watch",
       "group": "test",
+      "label": "npm: test (watch)",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "bun: lint",
-      "type": "shell",
-      "command": "bun run lint",
+      "command": "npm run lint",
       "group": "test",
+      "label": "npm: lint",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
       "problemMatcher": [
         {
           "owner": "builtin",
           "pattern": [
             {
-              "regexp": ".",
               "file": 1,
               "location": 2,
-              "message": 3
+              "message": 3,
+              "regexp": "."
             }
-          ],
-          "background": {
-            "label": "babel"
-          }
+          ]
         }
-      ]
+      ],
+      "type": "shell"
     },
     {
-      "label": "bun: lint:fix",
-      "type": "shell",
-      "command": "bun run lint:fix",
+      "command": "npm run check:fix",
       "group": "test",
+      "label": "npm: lint:fix",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "bun: format",
-      "type": "shell",
-      "command": "bun run format",
+      "command": "npm run format",
       "group": "test",
+      "label": "npm: format",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "bun: typecheck",
-      "type": "shell",
-      "command": "bun run typecheck",
+      "command": "npm run typecheck",
       "group": "test",
+      "label": "npm: typecheck",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "cargo: build",
-      "type": "shell",
-      "command": "bun run cargo:build",
-      "group": "build",
-      "presentation": {
-        "echo": true,
         "reveal": "always",
-        "focus": false,
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "cargo: test",
-      "type": "shell",
-      "command": "bun run cargo:test",
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "cargo: check",
-      "type": "shell",
-      "command": "bun run cargo:check",
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "cargo: clippy",
-      "type": "shell",
-      "command": "bun run cargo:clippy",
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "cargo: fmt",
-      "type": "shell",
-      "command": "bun run cargo:fmt",
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
-      },
-      "problemMatcher": []
-    },
-    {
+      "command": "npm run changeset",
+      "group": "none",
       "label": "changeset: create",
-      "type": "shell",
-      "command": "bun run changeset",
-      "group": "none",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
+      "command": "npm run changeset:version",
+      "group": "none",
       "label": "changeset: version",
-      "type": "shell",
-      "command": "bun run version",
-      "group": "none",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "changeset: publish",
-      "type": "shell",
-      "command": "bun run release",
+      "command": "npm run changeset:publish",
       "group": "none",
+      "label": "changeset: publish",
       "presentation": {
+        "clear": true,
         "echo": true,
-        "reveal": "always",
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true
+        "reveal": "always",
+        "showReuseMessage": true
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     }
   ]
 }

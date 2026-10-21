@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Token cost question
+    url: https://github.com/gabrielvfonseca/shrink/discussions
+    about: Ask how to interpret a report, or how to tune the scanner for your repo.
+  - name: Ultracite rules question
+    url: https://github.com/haydenbleasel/ultracite/discussions
+    about: Ask about the linting and formatting preset this project uses.
+  - name: Tokenizer reference
+    url: https://github.com/openai/tiktoken
+    about: Read how BPE tokenization works and which encodings exist.

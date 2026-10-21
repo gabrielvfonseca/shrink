@@ -1,0 +1,52 @@
+# Auto-labels pull requests based on the files they touch.
+# https://github.com/actions/labeler
+
+"area: scanning":
+  - changed-files:
+      - any-glob-to-any-file: "src/scan.ts"
+      - any-glob-to-any-file: "src/suggest.ts"
+
+"area: tokenization":
+  - changed-files:
+      - any-glob-to-any-file: "src/tokenize.ts"
+      - any-glob-to-any-file: "src/models.ts"
+
+"area: reporting":
+  - changed-files:
+      - any-glob-to-any-file: "src/report/**"
+      - any-glob-to-any-file: "src/treemap.ts"
+
+"area: analysis":
+  - changed-files:
+      - any-glob-to-any-file: "src/analyze.ts"
+
+"area: cli":
+  - changed-files:
+      - any-glob-to-any-file: "src/cli.ts"
+      - any-glob-to-any-file: "bin/**"
+
+"area: tests":
+  - changed-files:
+      - any-glob-to-any-file: "tests/**"
+
+"area: docs":
+  - changed-files:
+      - any-glob-to-any-file: "docs/**"
+      - any-glob-to-any-file: "*.md"
+
+"area: tooling":
+  - changed-files:
+      - any-glob-to-any-file: "biome.json"
+      - any-glob-to-any-file: "package.json"
+      - any-glob-to-any-file: "tsconfig.json"
+      - any-glob-to-any-file: "vitest.config.ts"
+      - any-glob-to-any-file: ".husky/**"
+      - any-glob-to-any-file: ".claude/**"
+
+"area: ci":
+  - changed-files:
+      - any-glob-to-any-file: ".github/**"
+
+"area: release":
+  - changed-files:
+      - any-glob-to-any-file: ".changeset/**"

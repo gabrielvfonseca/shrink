@@ -1,0 +1,12 @@
+# Default owners for everything in this repository.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @gabrielvfonseca
+
+# Tooling and configuration — these need a careful review before merge.
+/.github/ @gabrielvfonseca
+/.changeset/ @gabrielvfonseca
+/.claude/ @gabrielvfonseca
+
+# The release pipeline. Changes here can publish to npm.
+/bin/ @gabrielvfonseca

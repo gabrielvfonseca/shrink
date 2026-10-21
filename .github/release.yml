@@ -1,0 +1,41 @@
+# Configures the changelog generated for each GitHub release.
+# https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes
+
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+      - ignore-for-release
+    authors:
+      - dependabot
+  categories:
+    - title: Breaking changes
+      labels:
+        - breaking-change
+        - major
+    - title: Features
+      labels:
+        - feature
+        - enhancement
+        - minor
+    - title: Bug fixes
+      labels:
+        - bug
+        - fix
+        - patch
+    - title: Tokenizer and model support
+      labels:
+        - tokenizer
+        - model
+    - title: Documentation
+      labels:
+        - documentation
+        - docs
+    - title: Tooling and CI
+      labels:
+        - tooling
+        - ci
+        - dependencies
+    - title: Other changes
+      labels:
+        - "*"

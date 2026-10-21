@@ -1,5 +1,5 @@
 {
-  "name": "token-cost",
+  "name": "shrink",
   "version": "0.1.0",
   "description": "Token/context cost visualizer for a repo — see which files eat your LLM context window",
   "keywords": [
@@ -16,7 +16,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "token-cost": "bin/index.js"
+    "shrink": "bin/index.js"
   },
   "files": [
     "bin",

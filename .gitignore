@@ -5,3 +5,7 @@ coverage
 .DS_Store
 .env
 .env.*
+
+# Personal, machine-specific Claude Code settings. Shared rules live in
+# .claude/settings.json and AGENTS.md.
+.claude/settings.local.json

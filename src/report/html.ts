@@ -204,7 +204,7 @@ export function renderHtml(input: HtmlInput): string {
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>token-cost — ${escapeHtml(input.root)}</title>
+<title>shrink — ${escapeHtml(input.root)}</title>
 <style>
   :root {
     --bg: #0d1117; --panel: #161b22; --border: #30363d;
@@ -262,7 +262,7 @@ export function renderHtml(input: HtmlInput): string {
 </head>
 <body>
 <div class="wrap">
-  <h1>token-cost <span class="root">— ${escapeHtml(input.root)}</span></h1>
+  <h1>shrink <span class="root">— ${escapeHtml(input.root)}</span></h1>
 
   <div class="headline">
     <div class="big">Top <em>${pareto.topN} files</em> = <em>${fmtPct(
@@ -306,7 +306,7 @@ export function renderHtml(input: HtmlInput): string {
     input.skippedCount > 0
       ? `${input.skippedCount} files skipped as binary/ignored/oversize.`
       : ""
-  } Regenerate with <code>npx token-cost</code>.</p>
+  } Regenerate with <code>npx shrink</code>.</p>
 </div>
 </body>
 </html>`;

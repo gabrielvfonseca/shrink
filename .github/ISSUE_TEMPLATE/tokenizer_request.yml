@@ -1,0 +1,42 @@
+name: Tokenizer or model support
+description: Request a new tokenizer encoding, a new model's context window, or a token-counting correction
+title: "[Tokenizer]: "
+labels: ["tokenizer", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Token counts use the `o200k_base` encoding, which is exact for the
+        GPT-4o family and an approximation (usually within ~10%) for other
+        providers.
+
+  - type: input
+    id: model
+    attributes:
+      label: Which model or tokenizer?
+      description: The model, family, or encoding you want supported.
+      placeholder: claude-opus-4.6
+    validations:
+      required: true
+
+  - type: input
+    id: window
+    attributes:
+      label: Context window (tokens)
+      description: Leave blank if you are unsure.
+      placeholder: 1000000
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: |
+        How do you know the current count is wrong? A comparison against the
+        provider's own token counter is the most useful evidence.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context

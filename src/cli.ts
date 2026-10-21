@@ -6,10 +6,10 @@ import pc from "picocolors";
 import { run } from "./run.js";
 
 const HELP = `
-${pc.bold("token-cost")} — see which files eat your LLM context window
+${pc.bold("shrink")} — see which files eat your LLM context window
 
 ${pc.bold("Usage")}
-  token-cost [path] [options]
+  shrink [path] [options]
 
 ${pc.bold("Options")}
   -p, --path <dir>     Directory to scan (default: current directory)
@@ -23,10 +23,10 @@ ${pc.bold("Options")}
   -v, --version        Show version
 
 ${pc.bold("Examples")}
-  token-cost                 # scan current directory
-  token-cost ./src           # scan a subdirectory
-  token-cost --json          # JSON for scripting/CI
-  token-cost --save-html report.html   # screenshot-ready treemap
+  shrink                 # scan current directory
+  shrink ./src           # scan a subdirectory
+  shrink --json          # JSON for scripting/CI
+  shrink --save-html report.html   # screenshot-ready treemap
 `;
 
 async function readVersion(): Promise<string> {

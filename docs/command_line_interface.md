@@ -1,0 +1,89 @@
+# COMMAND LINE INTERFACE
+
+```
+shrink [path] [options]
+```
+
+THE PATH ARGUMENT IS OPTIONAL AND DEFAULTS TO THE CURRENT DIRECTORY. ALL FLAGS
+USE THE LONG FORM; THE SHORT FORMS LISTED BELOW ARE EQUIVALENT.
+
+## FLAGS
+
+| FLAG | SHORT | DEFAULT | DESCRIPTION |
+| --- | --- | --- | --- |
+| `--path <dir>` | `-p` | `.` | DIRECTORY TO SCAN |
+| `--top <n>` | `-t` | `5` | NUMBER OF HEAVIEST FILES IN THE HEADLINE |
+| `--no-ignore` | — | off | IGNORE `.gitignore` / `.tokenignore` AND SCAN EVERYTHING |
+| `--max-mb <n>` | — | `5` | SKIP FILES LARGER THAN N MEGABYTES |
+| `--json` | — | off | PRINT MACHINE-READABLE JSON INSTEAD OF THE REPORT |
+| `--html` | — | off | PRINT THE STANDALONE HTML TREEMAP REPORT TO STDOUT |
+| `--save-html <file>` | — | — | WRITE THE HTML TREEMAP REPORT TO A FILE |
+| `--help` | `-h` | — | SHOW HELP |
+| `--version` | `-v` | — | SHOW THE INSTALLED VERSION |
+
+## OUTPUT MODE PRECEDENCE
+
+EXACTLY ONE MODE IS USED, CHECKED IN THIS ORDER:
+
+1. `--json` — JSON TO STDOUT
+2. `--html` — HTML TO STDOUT
+3. `--save-html <file>` — HTML TO A FILE, TERMINAL REPORT TO STDOUT
+4. DEFAULT — TERMINAL REPORT TO STDOUT
+
+`--save-html` COMBINES WITH THE TERMINAL REPORT, SO YOU GET BOTH THE FILE AND
+THE CONSOLE OUTPUT. THE FILE PATH IS NOT RELATIVE TO THE SCAN ROOT — IT
+RESOLVES AGAINST YOUR CURRENT WORKING DIRECTORY.
+
+## EXIT CODES
+
+| CODE | MEANING |
+| --- | --- |
+| `0` | SCAN COMPLETED |
+| `1` | INVALID ARGUMENT, MISSING PATH, OR AN UNREADABLE TARGET |
+
+THE SCAN ITSELF NEVER FAILS BECAUSE OF A SINGLE BAD FILE. UNREADABLE FILES,
+BINARIES, AND OVERSIZED FILES ARE RECORDED AS SKIPPED AND REPORTED AS A
+COUNT.
+
+## EXAMPLES
+
+SCAN A REPO AND SHOW ONLY THE TOP 3 FILES IN THE HEADLINE:
+
+```sh
+shrink . --top 3
+```
+
+FIND EVERYTHING A TYPICAL AGENT WOULD PULL IN, IGNORING GIT RULES:
+
+```sh
+shrink . --no-ignore
+```
+
+PRODUCE A JSON REPORT FOR A CI CHECK:
+
+```sh
+shrink . --json | jq '.pareto.topNPercent'
+```
+
+GENERATE A TREEMAP FOR A PULL REQUEST:
+
+```sh
+shrink . --save-html shrink-report.html
+```
+
+SCAN ONLY LARGE FILES BY LOWERING THE SIZE CAP:
+
+```sh
+shrink . --max-mb 1
+```
+
+## LIBRARY USE
+
+THE PACKAGE ALSO EXPORTS ITS INTERNALS FOR PROGRAMMATIC USE:
+
+```ts
+import { run, scan, countTokens } from "shrink";
+
+const result = await run({ root: ".", topN: 5, useIgnoreFiles: true, maxBytes: 5_242_880 });
+console.log(result.totalTokens);
+```
